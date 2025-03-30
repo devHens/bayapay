@@ -1,15 +1,11 @@
 include .env
 export $(shell sed 's/=.*//' .env)
 
-start-db:
-	@echo "Starting PostgreSQL container..."
-	docker-compose up -d postgres  # Only start the PostgreSQL container
-
-start-app:
+start-container:
 	@echo "Starting all containers..."
 	docker-compose up -d 
 
-stop:
+stop-container:
 	@echo "Stopping all containers..."
 	docker-compose down
 
@@ -27,7 +23,7 @@ psql:
 
 seed:
 	@echo "Seeding the database..."
-	docker exec  bayapay_app npx sequelize-cli db:seed:all
+	docker exec bayapay_app npx sequelize-cli db:seed:all
 
 unseed:
 	@echo "Rolling back all seeds..."
@@ -37,9 +33,16 @@ logs:
 	@echo "Viewing logs from Node.js container..."
 	docker-compose logs -f bayapay_app
 
+
+reset-app : unseed rollback stop-container
+start-app: start-container migrate seed
+
+
+
+.PHONY: start-container stop migrate rollback psql seed unseed logs start-app help stop-container
+
 help:
 	@echo "Available commands:"
-	@echo "  start-db         Start the PostgreSQL container"
 	@echo "  start-app        Start the Node.js application container"
 	@echo "  stop             Stop all containers"
 	@echo "  migrate          Run all migrations"
