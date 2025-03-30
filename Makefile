@@ -43,7 +43,8 @@ start-app: start-container migrate seed
 
 help:
 	@echo "Available commands:"
-	@echo "  start-app        Start the Node.js application container"
+	@echo "  start-app        Start the application"
+	@echo "	 reset-app        Wipe clean application"
 	@echo "  stop             Stop all containers"
 	@echo "  migrate          Run all migrations"
 	@echo "  rollback         Rollback the last migration"
