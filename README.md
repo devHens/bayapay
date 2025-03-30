@@ -1,5 +1,3 @@
-# bayapay
-
 # README
 
 ## Simple Vehicle API
@@ -12,21 +10,32 @@ This API provides a simple way to retrieve vehicles using a single endpoint.
 - Docker Compose
 - Make (for running commands)
 
+### Technologies Used
+
+- Node.js `22.14.0`
+- PostgreSQL `17-alpine`
+
 ### How to Run
 
 1. Clone the repository.
-2. Create a `.env` file with the necessary environment variables. Example:
+2. Change directory into the cloned repository:
+
+```
+cd your-repo-name
+```
+
+3. Create a `.env` file with the necessary environment variables. Example:
 
 ```
 POSTGRES_USER=your_user
 POSTGRES_PASSWORD=your_password
 POSTGRES_DB=your_database
 POSTGRES_PORT=5432
-POSTGRES_HOST=bayapay_db #fix
+POSTGRES_HOST=bayapay_db  # This must match the container name defined in docker-compose.yml
 SERVER_PORT=3000
 ```
 
-3. Run the following command to start the application:
+4. Run the following command to start the application:
 
 ```
 make start-app
