@@ -21,7 +21,7 @@ This API provides a simple way to retrieve vehicles using a single endpoint.
 2. Change directory into the cloned repository:
 
 ```
-cd your-repo-name
+cd bayapay
 ```
 
 3. Create a `.env` file with the necessary environment variables. Example:
