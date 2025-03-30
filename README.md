@@ -3,6 +3,8 @@
 ## Simple Vehicle API
 
 This API provides a simple way to retrieve vehicles using a single endpoint.
+## Code Structure
+Since this is a small application, I have kept the business logic and routes in a single file. The only exception is the database code, which is placed in a separate repository for better organization.
 
 ### Prerequisites
 
