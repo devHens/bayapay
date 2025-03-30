@@ -8,5 +8,22 @@ services:
       - postgres_data:/var/lib/postgresql/data  
     ports:
       - 5432:5432
+    networks:
+      - bayapay
+  nodejs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bayapay_app
+    env_file:
+      - .env
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+    networks:
+      - bayapay
 volumes:
   postgres_data:
+networks:
+  bayapay:
