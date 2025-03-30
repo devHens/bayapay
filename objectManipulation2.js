@@ -60,5 +60,3 @@ if (action.devices && action.devices.length > 0) {
 
 newObject.byStatus["ALL"] = newObject.allIds;
 console.log(JSON.stringify(newObject, null, 2));
-
-// Return the final newObject
