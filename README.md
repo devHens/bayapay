@@ -42,6 +42,8 @@ SERVER_PORT=3000
 ```
 make start-app
 ```
+### R&D ERD Design
+![ERD](./bayapay.png)
 
 ### Available Endpoint
 
